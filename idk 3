@@ -1,0 +1,8 @@
+ALTER PROCEDURE [dbo]. {get_tutee}
+@p_roles varchar(5)
+AS
+  SELECT  
+  Tutee 
+FROM [DB_AduTutor].[dbo].[USERINFOs]
+WHERE [Roles] = @p_roles
+END;
