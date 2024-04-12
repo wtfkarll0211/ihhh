@@ -1,4 +1,4 @@
-ALTER PROCEDURE [dbo]. {get_tutee}
+ALTER PROCEDURE [dbo]. [get_tutee]
 @p_roles varchar(5)
 AS
   SELECT  
