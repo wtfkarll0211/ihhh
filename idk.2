@@ -1,5 +1,5 @@
-public List<GetTutee> GetTutee()
-    List<GetTutee> GetTutee = new List<GetTutee>()
+public List<Userinfo> GetTutee()
+    List<Userinfo>Tutee = new List<Userinfo>()
     try
        command.CommandText = StoredProcedures.GetTutee;
        connection.Open;
@@ -8,10 +8,21 @@ public List<GetTutee> GetTutee()
 
             while (reader.Read())
            {    
-               GetTutee gettutee = new GetTutee
+               Userinfo tuttee = new Userinfo
 
                  Roles = reader[dikoalam].ToString(),
 
             };
             GetTutee.Add(gettutee);
+           }
+          }
+        } 
+        catch
+             throw;
+        {
+        finally
+        {
+            connection.Close();
+        }
+        return tuttee;
     
