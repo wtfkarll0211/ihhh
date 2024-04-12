@@ -1,0 +1,17 @@
+public List<GetTutee> GetTutee()
+    List<GetTutee> GetTutee = new List<GetTutee>()
+    try
+       command.CommandText = StoredProcedures.GetTutee;
+       connection.Open;
+       SqlDataReader reader = command.ExecuteReader();
+       if (reader.HasRows)
+
+            while (reader.Read())
+           {    
+               GetTutee gettutee = new GetTutee
+
+                 Roles = reader[dikoalam].ToString(),
+
+            };
+            GetTutee.Add(gettutee);
+    
