@@ -1,5 +1,5 @@
-public List<Userinfo> GetTutee()
-    List<Userinfo>Tutee = new List<Userinfo>()
+public List<Profile> GetTutee()
+    List<Profile>Tutee = new List<Profile>()
     try
        command.CommandText = StoredProcedures.GetTutee;
        connection.Open;
@@ -8,9 +8,13 @@ public List<Userinfo> GetTutee()
 
             while (reader.Read())
            {    
-               Userinfo tuttee = new Userinfo
+               Profile tuttee = new Profile
 
-                 Roles = reader[dikoalam].ToString()
+                 Roles = reader[@p_roles].ToString()
+                 Name = reader[@p_name].ToString()
+                 Email = reader[@p_email].ToString()
+                 Bio = reader[@p_bio].ToString()
+                 Schedule = reader[@p_schedule].ToString()
 
             };
             Tutee.Add(tutee);
@@ -24,6 +28,6 @@ public List<Userinfo> GetTutee()
         {
             connection.Close();
         }
-        return tuttee;
+        return tutee;
     
 
