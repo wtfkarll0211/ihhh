@@ -5,7 +5,6 @@ AS
   [FirstName] varchar(20)
   [LastName] varchar(20)
   [Email] varchar (50)
-  [Section] varchar (8)
 FROM [DB_AduTutor].[dbo].[USERINFOs]
 WHERE [Roles] = @p_roles
 END;
