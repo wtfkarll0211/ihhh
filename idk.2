@@ -2,6 +2,7 @@ public List<Profile> GetTutee()
     List<Profile>Tutee = new List<Profile>()
     try
        command.CommandText = StoredProcedures.GetTutee;
+       Command.Parameters.AddWithValue("p_roles", userinfo.role);
        connection.Open;
        SqlDataReader reader = command.ExecuteReader();
        if (reader.HasRows)
@@ -15,10 +16,7 @@ public List<Profile> GetTutee()
                  Email = reader["email"].ToString()
                  Bio = reader["bio"].ToString()
                  Schedule = reader["schedule"].ToString()
-                 Tutee.Add(tutee);
-
-            };
-            
+                 Tutee.Add(tutee)
            }
           }
         } 
