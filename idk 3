@@ -2,9 +2,10 @@ ALTER PROCEDURE [dbo]. [Get_tutee]
 @p_roles varchar(5)
 AS
   SELECT  
-  [FirstName] varchar(20)
-  [LastName] varchar(20)
-  [Email] varchar (50)
+  [Name] varchar(50)
+  [Email] varchar(50)
+  [Bio] varchar(100)
+  [Schedule] varchar(10)
 FROM [DB_AduTutor].[dbo].[USERINFOs]
 WHERE [Roles] = @p_roles
 END;
