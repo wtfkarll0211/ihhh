@@ -1,11 +1,12 @@
-ALTER PROCEDURE [dbo]. [Get_tutor]
+CREATE PROCEDURE [dbo].[Get_users]
 @p_roles varchar(5)
 AS
-  SELECT  
-  [Name] 
-  [Email] 
-  [Bio] 
-  [Schedule] 
+  SELECT
+  [Name],
+  [Email], 
+  [Bio],
+  [Schedule],
+  [Id]
 FROM [DB_AduTutor].[dbo].[USERINFOs]
 WHERE [Roles] = @p_roles
 END;
