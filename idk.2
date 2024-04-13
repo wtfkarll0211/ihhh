@@ -1,32 +1,42 @@
 public List<Profile> GetTutee()
-    List<Profile>Tutee = new List<Profile>()
+{
+    List<Profile> Tutee = new List<Profile>()
     try
+    {
        command.CommandText = StoredProcedures.GetTutee;
-       Command.Parameters.AddWithValue("p_roles", userinfo.role);
-       connection.Open;
+       command.Parameters.AddWithValue("p_roles", "Tutee");
+       connection.Open();
        SqlDataReader reader = command.ExecuteReader();
        if (reader.HasRows)
-
-            while (reader.Read()
+       {
+           while (reader.Read())
            {    
-               Profile tutee = new Profile
+               Profile tutee = new Profile();
 
-                 Roles = reader["roles"].ToString()
-                 Name = reader["name"].ToString()
-                 Email = reader["email"].ToString()
-                 Bio = reader["bio"].ToString()
-                 Schedule = reader["schedule"].ToString()
-                 Tutee.Add(tutee)
+                 Roles = reader["roles"].ToString();
+                 Name = reader["name"].ToString();
+                 Email = reader["email"].ToString();
+                 Bio = reader["bio"].ToString();
+                 Schedule = reader["schedule"].ToString();
+                 Tutee.Add(tutee);
            }
-          }
-        } 
-        catch
-             throw;
-        {
-        finally
-        {
-            connection.Close();
-        }
-        return tutee;
+       }
+    }
+    catch
+    {
+    throw;
+    }
+    finally
+    {
+    connection.Close();
+    }
+    return Tutee;
+}
+    
+    
+       
+
+            
+      
     
 
