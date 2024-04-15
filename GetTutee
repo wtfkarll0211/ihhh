@@ -1,0 +1,32 @@
+public GetTutee GetTutee(Profile request)
+   {
+       try
+       {
+           var httpWebRequest = (HttpWebRequest)WebRequest.Create("https://localhost:7029/AduTutor/GetTutee");
+           httpWebRequest.ContentType = "application/json";
+           httpWebRequest.Method = "POST";
+
+
+           httpWebRequest.AllowAutoRedirect = false;
+           using (var streamWriter = new StreamWriter(httpWebRequest.GetRequestStream()))
+           {
+               string jsonString = Newtonsoft.Json.JsonConvert.SerializeObject(request);
+               streamWriter.Write(jsonString);
+               streamWriter.Flush();
+               streamWriter.Close();
+           }
+           var httpResponse = (HttpWebResponse)httpWebRequest.GetResponse();
+           string httpWebResult;
+           using (var streamReader = new StreamReader(httpResponse.GetResponseStream()))
+           {
+               httpWebResult = streamReader.ReadToEnd();
+           }
+
+           return Newtonsoft.Json.JsonConvert.DeserializeObject<CustomizationProfile>(httpWebResult);
+       }
+       catch
+       {
+           throw;
+       }
+
+   }
